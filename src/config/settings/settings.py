@@ -2,8 +2,6 @@ import os
 from datetime import timedelta
 from pathlib import Path
 
-import dj_database_url
-
 BASE_DIR = Path(__file__).parents[2]
 SECRET_KEY = os.environ.get('SECRET_KEY')
 ROOT_URLCONF = 'config.urls'
