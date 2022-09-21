@@ -166,6 +166,18 @@ SIMPLE_JWT = {
 }
 
 ##################################################################
+# Swagger settings
+##################################################################
+
+SWAGGER_SETTINGS = {
+    'VALIDATOR_URL': None,
+    'DOC_EXPANSION': 'none',
+    'SECURITY_DEFINITIONS': {
+        'JWT': {'type': 'apiKey', 'name': 'Authorization', 'in': 'header'},
+    },
+}
+
+##################################################################
 # Default auto field settings
 ##################################################################
 
