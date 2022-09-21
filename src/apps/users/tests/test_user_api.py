@@ -39,10 +39,8 @@ def test_user_login(api_client):
         'email': user.email,
         'password': password
     }
-    expected = None
-    tmp_url = reverse('api:auth:token')
 
+    tmp_url = reverse('api:auth:token')
     response = api_client.post(tmp_url, data=payload)
 
-    assert response.status_code == status.HTTP_201_CREATED
-    assert response.json() == expected
+    assert response.status_code == status.HTTP_200_OK
