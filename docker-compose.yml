@@ -18,7 +18,7 @@ services:
     env_file: docker/.dockerenv
     restart: always
     volumes:
-      - ./src:/app
+      - ./src:/src
       - ./volumes/media:/media
       - ./volumes/static:/src/staticfiles
     depends_on:
