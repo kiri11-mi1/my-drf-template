@@ -10,11 +10,10 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('auth/', include('apps.users.urls.auth')),
-    path('users/', include('apps.users.urls.users_urls')),
+    path('auth/', include(('apps.users.urls.auth', 'auth'))),
+    path('users/', include(('apps.users.urls.users_urls', 'users'))),
 
     path('swagger(<str:format>.json|.yaml)/', schema_view.without_ui(), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger'), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc'), name='schema-redoc'),
-
 ]
