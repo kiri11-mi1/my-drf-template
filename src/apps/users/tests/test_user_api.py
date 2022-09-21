@@ -5,6 +5,7 @@ from rest_framework import status
 from django.contrib.auth import get_user_model
 
 from ..serializers import UserSummarySerializer
+from ..models import User
 
 pytestmark = [pytest.mark.django_db]
 
@@ -44,3 +45,21 @@ def test_user_login(api_client):
     response = api_client.post(tmp_url, data=payload)
 
     assert response.status_code == status.HTTP_200_OK
+
+
+def test_user_register(api_client):
+    email = mixer.faker.email(),
+    password = mixer.faker.password(),
+    username = mixer.faker.word().title()
+
+    payload = {
+        'email': email,
+        'username': username,
+        'password': password
+    }
+
+    tmp_url = reverse('api:auth:register')
+    response = api_client.post(tmp_url, data=payload)
+
+    assert response.status_code == status.HTTP_201_CREATED
+    assert User.objects.count() == 1
