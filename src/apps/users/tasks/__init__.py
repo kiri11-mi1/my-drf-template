@@ -1,0 +1,1 @@
+from .user_example_task import test_task_for_example
