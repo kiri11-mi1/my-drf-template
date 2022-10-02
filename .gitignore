@@ -12,3 +12,4 @@
 /pg_data
 *.dockerenv
 volumes/
+celerybeat*
